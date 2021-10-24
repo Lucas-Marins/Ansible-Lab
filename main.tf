@@ -27,7 +27,7 @@ resource "aws_instance" "dev" {
 
   vpc_security_group_ids = [ "${aws_security_group.acesso-ssh.id}" ]
   tags = {
-    Name = "dev"
+    Name = "TErraform Ansible Python"
   } 
 }
 
