@@ -8,5 +8,5 @@
   tasks:
   - name: Create a resource group
     azure_rm_resourcegroup:
-      name: lab-ansible-criando-rg
+      name: lab-ansible-criando-rg-
       location: eastus
