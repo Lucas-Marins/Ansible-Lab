@@ -1,5 +1,9 @@
 ---
-- hosts: localhost
+- name: Deletando Resource Group
+  hosts: localhost
+  connection: local
+  collections:
+    - azure.azcollection
   tasks:
     - name: Deleting resource group - Testing
       azure_rm_resourcegroup:
