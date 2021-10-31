@@ -73,10 +73,10 @@
         version: latest
     register: command_output
     
-  - name: Get Ip addres  
-    set_fact:
-      neighbors: "{{command_output.stdout_lines | ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[*].properties.ipConfigurations[*].properties.publicIPAddress.properties.ipAddress[]}}"
+  # - name: Get Ip addres  
+  #   set_fact:
+  #     neighbors: command_output  ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[*].properties.ipConfigurations[*].properties.publicIPAddress.properties.ipAddress[]
     
   - name: Print de ipAddres
     debug:
-      msg: "{{ neighbors }}"
+      var: command_output.stdout_lines 
