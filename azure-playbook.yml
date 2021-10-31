@@ -7,13 +7,13 @@
     location: eastus
   tasks:
   - name: Create VM with defaults
-  azure_rm_virtualmachine:
-    resource_group: myResourceGroup
-    name: testvm10
-    admin_username: teste
-    admin_password: teste
-    image:
-      offer: CentOS
-      publisher: OpenLogic
-      sku: '7.1'
-      version: latest
+    azure_rm_virtualmachine:
+      resource_group: myResourceGroup
+      name: testvm10
+      admin_username: teste
+      admin_password: teste
+      image:
+        offer: CentOS
+        publisher: OpenLogic
+        sku: '7.1'
+        version: latest
