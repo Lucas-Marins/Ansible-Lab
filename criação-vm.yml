@@ -1,5 +1,6 @@
 - name: Create Azure VM
   hosts: localhost
+  become: yes
   connection: local
   collections:
     - azure.azcollection
@@ -76,3 +77,11 @@
         publisher: RedHat
         sku: 8
         version: latest
+
+  - name: Installs Nginx web server
+    yum: 
+      name: "{{packages}}"
+    vars:
+     packages:
+     - nginx
+  
