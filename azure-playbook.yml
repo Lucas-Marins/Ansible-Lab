@@ -72,7 +72,7 @@
       name: testvm001
       vm_size: Standard_A1_v2
       admin_username: ditiepc123
-      admin_password: Password!
+      admin_password: diti@2302155
       network_interfaces: testnic001
       image:
         offer: RHEL
