@@ -8,6 +8,7 @@
     - name: Deleting resource group - Testing
       azure_rm_resourcegroup:
         name: Testing
+        force_delete_nonempty: true
         state: absent
       register: rg
     - debug:
