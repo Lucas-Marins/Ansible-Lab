@@ -71,8 +71,6 @@
         publisher: RedHat
         sku: 8
         version: latest
-    
-  - name: Get IpAdrres
     set_fact:
       neighbors: ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[*].properties.ipConfigurations[*].properties.publicIPAddress.properties.ipAddress[]
     
