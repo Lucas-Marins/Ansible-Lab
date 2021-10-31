@@ -12,7 +12,7 @@
   - name: Create storage account
     azure.azcollection.azure_rm_storageaccount:
       resource_group: Testing
-      name: testaccount001
+      name: testact598666
       account_type: Standard_LRS
 
   - name: Create virtual network
@@ -60,7 +60,7 @@
       resource_group: Testing
       name: testvm001
       vm_size: Standard_A1_v2
-      storage_account: testaccount001
+      storage_account: testact598666
       storage_container: testvm001
       storage_blob: testvm001.vhd
       admin_username: ditiepc123
