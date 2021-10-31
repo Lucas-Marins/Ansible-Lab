@@ -10,7 +10,7 @@
       location: eastus
     
   - name: Create storage account
-    azure.azcollection.azure_rm_storageaccount:
+    azure_rm_storageaccount:
       resource_group: Testing
       name: testact598666
       account_type: Standard_LRS
