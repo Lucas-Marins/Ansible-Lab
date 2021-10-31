@@ -26,26 +26,14 @@
       name: lab-ansible-terraform
       location: "eastus"
 
-  - azure_rm_securitygroup:
-      resource_group: lab-ansible-terraform
-      name: teste-ansible
-      rules:
-        - name: SSH
-          protocol: Tcp
-          destination_port_range: 22
-          access: Allow
-          priority: 101
-          direction: Inbound
-
-  - name: Create VM
+  - name: Create VM with defaults
     azure_rm_virtualmachine:
       resource_group: lab-ansible-terraform
-      name: teste-ansible
-      vm_size: Standard_DS1_v2
-      admin_username: azureuser
-      admin_password: Password@123
+      name: testvm10
+      admin_username: admin
+      admin_password: admin
       image:
-        offer: UbuntuServer
-        publisher: Canonical
-        sku: 16.04-LTS
+        offer: CentOS
+        publisher: OpenLogic
+        sku: '7.1'
         version: latest
