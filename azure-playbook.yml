@@ -28,8 +28,8 @@
 
   - name: Create virtual network
     azure_rm_virtualnetwork:
-      resource_group: myResourceGroup
-      name: myVirtualNetwork
+      resource_group: lab-ansible-terraform
+      name: lab-ansible-terraform
       address_prefixes_cidr:
           - "10.1.0.0/16"
           - "172.100.0.0/16"
