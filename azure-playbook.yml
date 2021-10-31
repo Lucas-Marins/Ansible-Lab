@@ -23,33 +23,33 @@
   tasks:
   - name: Create a resource group
     azure_rm_resourcegroup:
-      name: lab-ansible-terraform
+      name: testing
       location: "eastus"
 
   - name: Create virtual network
     azure_rm_virtualnetwork:
-      resource_group: lab-ansible-terraform
-      name: myVirtualNetwork
+      resource_group: testing
+      name: testvn001
       address_prefixes_cidr:
           - "10.1.0.0/16"
 
   - name: Add subnet
     azure_rm_subnet:
-      resource_group: lab-ansible-terraform
-      name: teste-ansible
-      address_prefix: "10.0.1.0/24"
-      virtual_network: teste-ansible
+      resource_group: testing
+      name: subnet001
+      address_prefix: "10.10.0.0/24"
+      virtual_network: testvn001
 
   - name: Create public IP address
     azure_rm_publicipaddress:
-      resource_group: lab-ansible-terraform
+      resource_group: testing
       allocation_method: Static
-      name: teste-ansible
+      name: publicip001
 
   - name: Create Network Security Group that allows SSH
     azure_rm_securitygroup:
-      resource_group: lab-ansible-terraform
-      name: teste-ansible
+      resource_group: testing
+      name: secgroup001
       rules:
         - name: SSH
           protocol: Tcp
@@ -60,21 +60,24 @@
 
   - name: Create virtual network inteface card
     azure_rm_networkinterface:
-      resource_group: lab-ansible-terraform
-      name: teste-ansible
-      virtual_network: teste-ansible
-      subnet: teste-ansible
-      public_ip_name: teste-ansible
-      security_group: teste-ansible"
+      resource_group: testing
+      name: testnic001
+      virtual_network: testvn001
+      subnet: subnet001
+      public_ip_name: publicip001
+      security_group: secgroup001
 
   - name: Create VM
     azure_rm_virtualmachine:
-      resource_group: lab-ansible-terraform
-      name: teste-ansible
+      resource_group: testing
+      name: testvm001
       vm_size: Standard_DS1_v2
-      admin_username: azureuser
-      admin_password: Password@123
-      network_interfaces: teste-ansible
+      storage_account: testaccount001
+      storage_container: testvm001
+      storage_blob: testvm001.vhd
+      admin_username: admin
+      admin_password: admin
+      network_interfaces: testnic001
       image:
         offer: UbuntuServer
         publisher: Canonical
