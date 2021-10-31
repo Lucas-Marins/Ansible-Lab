@@ -71,10 +71,9 @@
         publisher: RedHat
         sku: 8
         version: latest
+    set_fact:
+      neighbors: ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[*].properties.ipConfigurations[*].properties.publicIPAddress.properties.ipAddress[]
     
-  - name: Get facts by name
-    azure_rm_virtualmachine_info:
-      resource_group: Testing
-      name: testvm001
-    
-       
+  - name: Print de ipAddres
+    debug:
+      msg: "{{ neighbors }}"

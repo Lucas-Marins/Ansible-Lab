@@ -2,4 +2,3 @@ id_rsa
 **/.terraform/*
 *.tfstate
 *.tfstate.*
-hosts
