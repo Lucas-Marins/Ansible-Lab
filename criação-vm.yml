@@ -33,6 +33,11 @@
       resource_group: Testing
       allocation_method: Static
       name: publicip001
+    register: output_ip_address
+
+  - name: Dump public IP for VM which will be created
+    debug:
+      msg: "The public IP is {{ output_ip_address.state.ip_address }}."
 
   - name: Create security group that allows SSH
     azure_rm_securitygroup:
@@ -71,19 +76,3 @@
         publisher: RedHat
         sku: 8
         version: latest
-    ansible.utils.cli_parse:
-      parser:
-        name: ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[*].properties.ipConfigurations[*].properties.publicIPAddress.properties.ipAddress[]
-    register: ipaddress
-    
-  # - name: Get Ip addres  
-  #   set_fact:
-  #     neighbors: command_output  ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[*].properties.ipConfigurations[*].properties.publicIPAddress.properties.ipAddress[]
-    
-  # - name: Print de ipAddres
-  #   debug:
-  #     var: command_output.stdout_lines 
-
-  - name: print structured interface state data
-    ansible.builtin.debug:
-      msg: "{{ ipaddress['parsed'] }}"
