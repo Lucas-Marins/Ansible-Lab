@@ -70,12 +70,12 @@
     azure.azcollection.azure_rm_virtualmachine:
       resource_group: Testing
       name: testvm001
-      vm_size: Standard_D1
+      vm_size: Standard_A1_v2
       admin_username: admin
       admin_password: Password!
       network_interfaces: testnic001
       image:
-        offer: UbuntuServer
-        publisher: Canonical
-        sku: 16.04-LTS
+        offer: RHEL
+        publisher: RedHat
+        sku: 8
         version: latest
