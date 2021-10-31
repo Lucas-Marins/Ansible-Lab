@@ -5,12 +5,23 @@
 #     resource_group: lab-ansbile
 #     vm_name: testvm
 #     location: eastus
-- name: Using Azure collection
+# - name: Using Azure collection
+#   hosts: localhost
+#   collections:
+#     - azure.azcollection
+#   tasks:
+#     - azure_rm_storageaccount:
+#         resource_group: myResourceGroup
+#         name: myStorageAccount
+#         account_type: Standard_LRS
+
+- name: Create Azure VM
   hosts: localhost
+  connection: local
   collections:
     - azure.azcollection
   tasks:
-    - azure_rm_storageaccount:
-        resource_group: myResourceGroup
-        name: myStorageAccount
-        account_type: Standard_LRS
+  - name: Create a resource group
+    azure_rm_resourcegroup:
+      name: lab-ansible-terraform
+      location: "eastus"
