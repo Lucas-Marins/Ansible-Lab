@@ -1,5 +1,5 @@
-[terraform-ansible]
-3.88.197.75 
+; [terraform-ansible]
+; 3.88.197.75 
 
 #Azure password automacao: Covo@5980
 
@@ -16,3 +16,7 @@
 # Site para fazer query em arquivos json
 #https://jmespath.org/?
 #https://opensource.com/article/21/4/process-json-data-ansible
+
+
+## Site para ver playbooks para azure ####
+#https://docs.microsoft.com/pt-br/azure/developer/ansible/vm-manage
