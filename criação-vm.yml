@@ -71,8 +71,11 @@
         publisher: RedHat
         sku: 8
         version: latest
+    register: command_output
+    
+  - name: Get Ip addres  
     set_fact:
-      neighbors: ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[*].properties.ipConfigurations[*].properties.publicIPAddress.properties.ipAddress[]
+      neighbors: "{{command_output.stdout_lines | ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[*].properties.ipConfigurations[*].properties.publicIPAddress.properties.ipAddress[]}}"
     
   - name: Print de ipAddres
     debug:
