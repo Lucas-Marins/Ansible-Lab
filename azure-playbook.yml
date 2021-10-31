@@ -1,0 +1,12 @@
+- name: Create Azure VM
+  hosts: localhost
+  connection: local
+  vars:
+    resource_group: lab-ansbile
+    vm_name: testvm
+    location: eastus
+  tasks:
+  - name: Create a resource group
+    azure_rm_resourcegroup:
+      name: lab-ansible
+      location: eastus
