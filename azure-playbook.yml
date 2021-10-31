@@ -33,7 +33,7 @@
       admin_username: admin
       admin_password: admin
       image:
-        offer: CentOS
-        publisher: OpenLogic
-        sku: '7.1'
+        offer: UbuntuServer
+        publisher: Canonical
+        sku: 16.04-LTS
         version: latest
