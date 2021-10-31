@@ -21,11 +21,10 @@
   collections:
     - azure.azcollection
   tasks:
-  - name: Create storage account
-    azure.azcollection.azure_rm_storageaccount:
-      resource_group: Testing
-      name: testaccount001
-      account_type: Standard_LRS
+  - name: Create a resource group
+    azure_rm_resourcegroup:
+      name: Testing
+      location: eastus
 
   - name: Create virtual network
     azure.azcollection.azure_rm_virtualnetwork:
