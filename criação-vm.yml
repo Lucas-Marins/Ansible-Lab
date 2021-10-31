@@ -8,6 +8,12 @@
     azure_rm_resourcegroup:
       name: Testing
       location: eastus
+    
+  - name: Create storage account
+    azure.azcollection.azure_rm_storageaccount:
+      resource_group: Testing
+      name: testaccount001
+      account_type: Standard_LRS
 
   - name: Create virtual network
     azure_rm_virtualnetwork:
@@ -54,6 +60,9 @@
       resource_group: Testing
       name: testvm001
       vm_size: Standard_A1_v2
+      storage_account: testaccount001
+      storage_container: testvm001
+      storage_blob: testvm001.vhd
       admin_username: ditiepc123
       admin_password: diti@2302155
       network_interfaces: testnic001
@@ -62,3 +71,10 @@
         publisher: RedHat
         sku: 8
         version: latest
+    
+  - name: Get facts by name
+    azure_rm_virtualmachine_info:
+      resource_group: Testing
+      name: testvm001
+    
+       
