@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Deleting resource group - Testing
+      azure_rm_resourcegroup:
+        name: Testing
+        state: absent
+      register: rg
+    - debug:
+        var: rg
