@@ -1,3 +1,4 @@
+---
 - name: Script para azure virtual machine
   collections:
     - azure.azcollection
