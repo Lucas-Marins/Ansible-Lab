@@ -1,3 +1,4 @@
 ---
-  - name: Instalando pacotes
-    yum: pkg=ansible state=installed
+ - name: Print message
+   debug:
+     msg: Hello Ansible World
