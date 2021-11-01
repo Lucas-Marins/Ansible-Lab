@@ -1,4 +1,4 @@
 ---
- - name: Print message
-   debug:
-     msg: Hello Ansible World
+- name: Print message
+  debug:
+    msg: Hello Ansible World
