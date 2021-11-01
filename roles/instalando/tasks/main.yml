@@ -1,0 +1,3 @@
+---
+  - name: Instalando pacotes
+    yum: pkg=ansible state=installed
