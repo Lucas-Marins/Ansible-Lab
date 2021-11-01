@@ -1,7 +1,7 @@
 ---
   - name: Carregando modulos
     collections:
-     - azure.azcollection
+      - "azure.azcollection"
 
   - name: Create a resource group
     azure_rm_resourcegroup:
