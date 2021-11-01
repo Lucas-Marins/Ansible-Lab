@@ -1,0 +1,9 @@
+- name: Testando acesso
+  hosts: ansible
+  tasks:
+  - name: Instalando pacotes
+    yum:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - nginx
