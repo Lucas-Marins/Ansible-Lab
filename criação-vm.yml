@@ -77,8 +77,8 @@
       # admin_password: diti@2302155
       ssh_password_enabled: false
       ssh_public_keys:
-        - path: /tmp/test/authorized_keys
-          key_data: test.pem
+        - path: /home/ditiepc123/.ssh/authorized_keys
+          key_data: ditiepc123.pem
       network_interfaces: testnic001
       image:
         offer: RHEL
