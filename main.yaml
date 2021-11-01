@@ -22,3 +22,8 @@
   connection: local
   roles:
    - create-vm
+
+- name: Instalando pacotes
+  hosts: ansible
+  roles:
+   - instalando

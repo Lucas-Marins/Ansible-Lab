@@ -1,5 +1,6 @@
 - name: Testando acesso
   hosts: ansible
+  become: yes
   tasks:
   - name: Instalando pacotes
     yum:
