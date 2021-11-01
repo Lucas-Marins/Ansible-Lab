@@ -1,8 +1,4 @@
-- name: Create Azure VM
-  hosts: localhost
-  connection: local
-  collections:
-    - azure.azcollection
+- name: Script para azure virtual machine
   tasks:
   - name: Create a resource group
     azure_rm_resourcegroup:

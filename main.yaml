@@ -17,4 +17,10 @@
 #   roles:
 #     - k8s-master
 
-
+- name: Criando Virtual machine
+  hosts: localhost
+  connection: local
+  collections:
+    - azure.azcollection
+  roles:
+   - create-vm
