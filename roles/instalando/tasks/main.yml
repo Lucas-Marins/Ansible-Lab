@@ -1,6 +1,6 @@
 ---
 - name: print to stdout
-  command: echo "hello"
+  shell: echo "hello"
   register: hello
 
 - debug: msg="{{ hello.stdout }}"
