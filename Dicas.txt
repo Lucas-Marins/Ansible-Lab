@@ -1,0 +1,20 @@
+
+#Azure password automacao: Covo@5980
+
+
+# instalcao de modulo: ansible-galaxy collection install azure.azcollection --force
+# entrar no home do user. => ansible-galaxy collection install azure.azcollection e rodar o comando -> pip install -r requirements-azure.txt
+#Para evitar conflitos, rodar ansible para azure na versao de python3 == 3.7
+# Possiveis problemas com pacotes: python3 -m pip install cffi
+
+
+
+######### Sites uteis ############
+
+# Site para fazer query em arquivos json
+#https://jmespath.org/?
+#https://opensource.com/article/21/4/process-json-data-ansible
+
+
+## Site para ver playbooks para azure ####
+#https://docs.microsoft.com/pt-br/azure/developer/ansible/vm-manage

@@ -35,47 +35,52 @@
       name: publicip001
     register: output_ip_address
 
-  - name: Dump public IP for VM which will be created
+  - name: Pegando o ip publico
     copy:
       content: "{{ output_ip_address.state.ip_address }}."
       dest: /tmp/teste
+    
+  - name: Prepando o arquivo hosts com ip publico
+    shell: echo -e "[terrafom]\n{{ output_ip_address.state.ip_address}}" > /tmp/hosts
 
-  - name: Create security group that allows SSH
-    azure_rm_securitygroup:
-      resource_group: Testing
-      name: secgroup001
-      rules:
-        - name: SSH
-          protocol: Tcp
-          destination_port_range: 22
-          access: Allow
-          priority: 101
-          direction: Inbound
+  
 
-  - name: Create NIC
-    azure_rm_networkinterface:
-      resource_group: Testing
-      name: testnic001
-      virtual_network: testvn001
-      subnet: subnet001
-      public_ip_name: publicip001
-      security_group: secgroup001
+  # - name: Create security group that allows SSH
+  #   azure_rm_securitygroup:
+  #     resource_group: Testing
+  #     name: secgroup001
+  #     rules:
+  #       - name: SSH
+  #         protocol: Tcp
+  #         destination_port_range: 22
+  #         access: Allow
+  #         priority: 101
+  #         direction: Inbound
 
-  - name: Create virtual machine
-    azure_rm_virtualmachine:
-      resource_group: Testing
-      name: testvm001
-      vm_size: Standard_A1_v2
-      storage_account: testact598666
-      storage_container: testvm001
-      storage_blob: testvm001.vhd
-      admin_username: ditiepc123
-      admin_password: diti@2302155
-      network_interfaces: testnic001
-      image:
-        offer: RHEL
-        publisher: RedHat
-        sku: 8
-        version: latest
+  # - name: Create NIC
+  #   azure_rm_networkinterface:
+  #     resource_group: Testing
+  #     name: testnic001
+  #     virtual_network: testvn001
+  #     subnet: subnet001
+  #     public_ip_name: publicip001
+  #     security_group: secgroup001
+
+  # - name: Create virtual machine
+  #   azure_rm_virtualmachine:
+  #     resource_group: Testing
+  #     name: testvm001
+  #     vm_size: Standard_A1_v2
+  #     storage_account: testact598666
+  #     storage_container: testvm001
+  #     storage_blob: testvm001.vhd
+  #     admin_username: ditiepc123
+  #     admin_password: diti@2302155
+  #     network_interfaces: testnic001
+  #     image:
+  #       offer: RHEL
+  #       publisher: RedHat
+  #       sku: 8
+  #       version: latest
 
   

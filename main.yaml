@@ -1,18 +1,20 @@
-- name: Instalando docker e k8s
-  become: yes
-  hosts: k8s
-  roles:
-    - docker
-    - k8s-all
+# - name: Instalando docker e k8s
+#   become: yes
+#   hosts: k8s
+#   roles:
+#     - docker
+#     - k8s-all
 
-- name: Configurando o master node
-  become: yes
-  hosts: tag_type_master
-  roles:
-    - k8s-master
+# - name: Configurando o master node
+#   become: yes
+#   hosts: tag_type_master
+#   roles:
+#     - k8s-master
   
-- name: Configurando os nós
-  become: yes
-  hosts: tag_type_worker
-  roles:
-    - k8s-master
+# - name: Configurando os workes
+#   become: yes
+#   hosts: tag_type_worker
+#   roles:
+#     - k8s-master
+
+
