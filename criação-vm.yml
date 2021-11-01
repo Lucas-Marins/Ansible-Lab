@@ -74,7 +74,11 @@
       storage_container: testvm001
       storage_blob: testvm001.vhd
       admin_username: ditiepc123
-      admin_password: diti@2302155
+      # admin_password: diti@2302155
+      ssh_password_enabled: false
+      ssh_public_keys:
+        - path: /tmp/test/authorized_keys
+          key_data: test.pem
       network_interfaces: testnic001
       image:
         offer: RHEL
