@@ -36,7 +36,7 @@
   #     dest: /tmp/teste
     
   - name: Prepando o arquivo hosts com ip publico do maquina
-    shell: echo "[ansible]\n{{ output_ip_address.state.ip_address}}ansible_ssh_user={{admin_user}}ansible_ssh_password={{admin_password}}" > /projeto/ansible/hosts
+    shell: echo "[ansible]\n{{ output_ip_address.state.ip_address}} ansible_ssh_user={{admin_user}} ansible_ssh_password={{admin_password}}" > /projeto/ansible/hosts
 
 
   - name: Create security group that allows SSH
