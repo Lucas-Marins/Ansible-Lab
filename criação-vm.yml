@@ -35,13 +35,13 @@
       name: publicip001
     register: output_ip_address
 
-  - name: Pegando o ip publico
-    copy:
-      content: "{{ output_ip_address.state.ip_address }}."
-      dest: /tmp/teste
+  # - name: Pegando o ip publico
+  #   copy:
+  #     content: "{{ output_ip_address.state.ip_address }}."
+  #     dest: /tmp/teste
     
-  - name: Prepando o arquivo hosts com ip publico
-    shell: echo -e "[terrafom]\n{{ output_ip_address.state.ip_address}}" > /tmp/hosts
+  - name: Prepando o arquivo hosts com ip publico do maquina
+    shell: echo "[terrafom]\n{{ output_ip_address.state.ip_address}}" > /projeto/ansible/hosts
 
   
 
