@@ -24,6 +24,7 @@
    - create-vm
 
 - name: Instalando pacotes
+  hosts: ansible
   become: yes
   roles:
    - instalando

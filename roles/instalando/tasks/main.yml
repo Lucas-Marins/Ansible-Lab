@@ -1,6 +1,6 @@
 ---
 - name: Hello World
-  hosts: ansible
+  #hosts: ansible
   tasks:
     - name: print to stdout
       shell: echo "Hello World My"
