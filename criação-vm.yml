@@ -36,8 +36,9 @@
     register: output_ip_address
 
   - name: Dump public IP for VM which will be created
-    debug:
-      msg: "The public IP is {{ output_ip_address.state.ip_address }}."
+    copy:
+      content: "{{ output_ip_address.state.ip_address }}."
+      dest: /tmp/teste
 
   - name: Create security group that allows SSH
     azure_rm_securitygroup:
@@ -77,12 +78,4 @@
         sku: 8
         version: latest
 
-  - name: Installs Nginx web server
-    yum: 
-      name: "{{packages}}"
-    vars:
-     packages:
-     - nginx
-    become: yes
-  
   
