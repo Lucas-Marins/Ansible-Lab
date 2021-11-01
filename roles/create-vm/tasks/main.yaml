@@ -1,4 +1,6 @@
 - name: Script para azure virtual machine
+  collections:
+    - azure.azcollection
   tasks:
   - name: Create a resource group
     azure_rm_resourcegroup:

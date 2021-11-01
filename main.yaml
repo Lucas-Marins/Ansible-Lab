@@ -19,8 +19,6 @@
 
 - name: Criando Virtual machine
   hosts: localhost
-  connection: local
-  collections:
-    - azure.azcollection
+  #connection: local
   roles:
    - create-vm
