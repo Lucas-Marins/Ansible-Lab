@@ -18,3 +18,5 @@
 
 ## Site para ver playbooks para azure ####
 #https://docs.microsoft.com/pt-br/azure/developer/ansible/vm-manage
+#https://docs.ansible.com/ansible/latest/collections/azure/azcollection/azure_rm_virtualmachine_module.html#ansible-collections-azure-azcollection-azure-rm-virtualmachine-module
+#https://www.hashbangcode.com/article/ansible-ssh-setup-playbook

@@ -1,6 +1,5 @@
 ---
-- name: print to stdout
-  shell: echo "Hello World My FRIENDO"
-  register: hello
-
-- debug: msg="{{ hello.stdout }}"
+- name: Install RPM
+  yum: name={{item}} state=latest
+  with_items:
+    - mysql-server
