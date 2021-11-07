@@ -1,0 +1,106 @@
+locals {
+  rg_name =  format("rg-%s", var.resource_group_name) 
+  // rg-demo99
+}
+
+locals {
+  tags = {
+    localtion = var.location
+    project = "learning"
+  }   
+}
+
+resource "azurerm_resource_group" "name"{
+  name = local.rg_name
+  location = var.location
+}
+
+
+resource "azurerm_resource_group" "rg" {
+  name = "temp-01"
+  location = var.location
+}
+
+# using dependes_on
+resource "azurerm_application_insights" "ins" {
+  name =  local.rg_name
+  location = var.location
+  resource_group_name = local.rg_name
+
+  depends_on = [
+    azurerm_resource_group.rg
+  ]
+}
+
+#or
+resource "azurerm_application_insights" "ins" {
+  name = local.rg_name
+  location = var.location
+  resource_group_name = azurerm_resource_group.name
+}
+
+#count
+resource "azurerm_application_insights" "ins" {
+  count =  3
+  name = format("%s-%s",local.rg_name, count.index) // name = dev-00-ins-0, dev-01-ins-1, dev-02-ins-2
+  location = var.location
+  resource_group_name = azurerm_resource_group.name
+}
+
+#life cycle
+resource "azurerm_application_insights" "ins" {
+  name = format("%s-%s",local.rg_name, count.index) 
+  location = var.location
+  resource_group_name = azurerm_resource_group.name
+
+  lifecycle {
+    ignore_changes = [
+      tags,
+      location
+    ]
+  }
+}
+
+#for_each
+resource "azurerm_application_insights" "ins" {
+  
+  count = var.logsrequires == true ? 1 : 0
+
+  name = format("%s-%s",local.rg_name, count.index) 
+  location = var.location
+  resource_group_name = azurerm_resource_group.name
+
+}
+
+#data block
+resource "azurerm_application_insights" "ins" {
+  name = ""
+  resource_group_name = ""
+}
+
+output "rg_name" {
+  value = var.resource_group_name
+}
+
+output "id" {
+  value = resource_group_name.rg.id
+}
+
+output "location" {
+  value = resource_group_name.rg.location
+}
+
+output "rg" {
+  value = resource_group_name.rg
+}
+
+calling app insight module
+module "insi" {
+  source = "../modules/appinsight"
+  resource_group_name = var.resource_group_name
+}
+
+calling webapp module
+module "webapp" {
+  source = "../modules/webapp"
+}
